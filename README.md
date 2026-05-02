@@ -1,10 +1,8 @@
 # Tanzania Crop Yield Intelligence — ML Prediction Study
 
-> Predicting maize, rice and cassava yields in Tanzania using machine.
-> 
-> Learning to support food security policy and agricultural lending 
-> 
-> Risk assessment.
+> Predicting maize, rice and cassava yields in Tanzania using machine
+> earning to support food security policy and agricultural lending
+>risk assessment.
 
 ## Live Dashboard
 
@@ -106,6 +104,31 @@ of farmer productivity.
 | Climate (Rainfall, T_min, T_max, Solar) | NASA POWER | 1990–2024 |
 
 ## Project Structure
+
+```
+Tanzania_Crop_Yield_ML/
+├── figures/
+│   ├── fig1_yield_trends.png
+│   ├── fig_maize_models.png
+│   ├── fig_rice_models.png
+│   ├── fig_cassava_models.png
+│   ├── fig_correlation_heatmap.png
+│   └── fig_phase1_vs_phase2.png
+├── outputs/
+│   ├── model_results.csv
+│   ├── model_results_multivariate.csv
+│   ├── tableau_master_data.csv
+│   ├── tableau_model_results.csv
+│   └── tableau_predictions.csv
+├── fao_yield_maize_rice_cassava.csv
+├── fao_fertilizers.csv
+├── fao_area_harvested.csv
+├── fao_land_use.csv
+├── fao_pesticides.csv
+├── nasa_climate_tanzania.csv
+├── crop_yield_analysis.py
+└── README.md
+```
 
 ## Tools & Technologies
 
