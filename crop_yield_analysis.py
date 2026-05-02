@@ -441,3 +441,85 @@ plt.tight_layout()
 plt.savefig('figures/fig_phase1_vs_phase2.png', dpi=150, bbox_inches='tight')
 plt.show()
 print("Phase comparison chart saved.")
+
+# ============================================================
+# PHASE 3 — EXPORT DATA FOR TABLEAU DASHBOARD
+# ============================================================
+
+# Export 1 — Master dataset (historical + all variables)
+df_master.to_csv('outputs/tableau_master_data.csv', index=False)
+print("✅ Master dataset exported for Tableau")
+
+# Export 2 — Phase 1 model results
+results_df['Phase'] = 'Phase 1 — Univariate'
+results_mv_df['Phase'] = 'Phase 2 — Multivariate'
+
+# Rename Phase 2 column to match
+results_mv_df = results_mv_df.rename(columns={'R² (Phase 2)': 'R²'})
+
+# Combine both phases
+all_results = pd.concat([results_df, results_mv_df], ignore_index=True)
+all_results.to_csv('outputs/tableau_model_results.csv', index=False)
+print("✅ Model results exported for Tableau")
+
+# Export 3 — Predictions table
+predictions_data = []
+future_yrs = [2025, 2026, 2027, 2028, 2029, 2030]
+
+crop_configs_pred = [
+    ('Maize (corn)', 'Maize'),
+    ('Rice', 'Rice'),
+    ('Cassava, fresh', 'Cassava')
+]
+
+for crop_key, crop_label in crop_configs_pred:
+    crop_df = df_master[df_master['Crop'] == crop_key].copy()
+    X_mv = crop_df[features].values
+    Y_mv = crop_df['Yield_kg_ha'].values
+
+    # Refit models
+    lr_p = LinearRegression()
+    dt_p = DecisionTreeRegressor(max_depth=4, random_state=42)
+    rf_p = RandomForestRegressor(n_estimators=100, max_depth=4, random_state=42)
+
+    lr_p.fit(X_mv, Y_mv)
+    dt_p.fit(X_mv, Y_mv)
+    rf_p.fit(X_mv, Y_mv)
+
+    # Use 2023 climate/fertilizer values as proxy for future
+    last_row = crop_df[features].iloc[-1].values
+
+    for yr in future_yrs:
+        future_input = last_row.copy()
+        future_input[0] = yr  # Update year
+        future_input = future_input.reshape(1, -1)
+
+        predictions_data.append({
+            'Crop': crop_label,
+            'Year': yr,
+            'Type': 'Forecast',
+            'Linear_Regression': round(float(lr_p.predict(future_input)[0]), 1),
+            'Decision_Tree': round(float(dt_p.predict(future_input)[0]), 1),
+            'Random_Forest': round(float(rf_p.predict(future_input)[0]), 1)
+        })
+
+    # Also add historical actuals
+    for _, row in crop_df.iterrows():
+        predictions_data.append({
+            'Crop': crop_label,
+            'Year': int(row['Year']),
+            'Type': 'Actual',
+            'Linear_Regression': None,
+            'Decision_Tree': None,
+            'Random_Forest': None,
+            'Actual_Yield': row['Yield_kg_ha']
+        })
+
+predictions_df = pd.DataFrame(predictions_data)
+predictions_df.to_csv('outputs/tableau_predictions.csv', index=False)
+print("✅ Predictions exported for Tableau")
+
+print("\n=== ALL TABLEAU FILES READY ===")
+print("outputs/tableau_master_data.csv")
+print("outputs/tableau_model_results.csv")
+print("outputs/tableau_predictions.csv")

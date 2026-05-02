@@ -81,6 +81,10 @@ systematic underestimation of farmer productivity.
 - [x] Phase 2 — Multivariate models (Rainfall + Fertilizer + Area → Yield)
 - [ ] Phase 3 — Tableau Public dashboard
 
+## Live Dashboard
+
+🌍 [View Interactive Tableau Public Dashboard](https://public.tableau.com/views/tanzania_crop_yield_prediction/TanzaniaYieldDashboard)
+
 ## Author
 
 **Candy-Mellania Severin**

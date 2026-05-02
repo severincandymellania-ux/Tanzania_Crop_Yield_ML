@@ -1,0 +1,19 @@
+Crop,Model,R²,MAE (kg/ha),Phase
+Maize,Linear Regression,0.003,315.8,Phase 1 — Univariate
+Maize,Decision Tree,0.96,57.7,Phase 1 — Univariate
+Maize,Random Forest,0.844,125.2,Phase 1 — Univariate
+Rice,Linear Regression,0.722,258.9,Phase 1 — Univariate
+Rice,Decision Tree,0.948,84.5,Phase 1 — Univariate
+Rice,Random Forest,0.945,107.2,Phase 1 — Univariate
+Cassava,Linear Regression,0.437,1405.4,Phase 1 — Univariate
+Cassava,Decision Tree,0.966,253.9,Phase 1 — Univariate
+Cassava,Random Forest,0.941,403.5,Phase 1 — Univariate
+Maize,Linear Regression,0.632,226.0,Phase 2 — Multivariate
+Maize,Decision Tree,0.919,88.7,Phase 2 — Multivariate
+Maize,Random Forest,0.872,126.1,Phase 2 — Multivariate
+Rice,Linear Regression,0.789,227.7,Phase 2 — Multivariate
+Rice,Decision Tree,0.979,50.2,Phase 2 — Multivariate
+Rice,Random Forest,0.97,83.7,Phase 2 — Multivariate
+Cassava,Linear Regression,0.825,728.4,Phase 2 — Multivariate
+Cassava,Decision Tree,0.974,210.2,Phase 2 — Multivariate
+Cassava,Random Forest,0.968,319.6,Phase 2 — Multivariate
