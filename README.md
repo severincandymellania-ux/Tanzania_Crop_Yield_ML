@@ -78,8 +78,8 @@ systematic underestimation of farmer productivity.
 ## Project Status
 
 - [x] Phase 1 — Univariate ML models (Year → Yield)
-- [ ] Phase 2 — Multivariate models (Rainfall + Fertilizer + Area → Yield)
-- [ ] Phase 3 — Tableau Public interactive dashboard
+- [x] Phase 2 — Multivariate models (Rainfall + Fertilizer + Area → Yield)
+- [ ] Phase 3 — Tableau Public dashboard
 
 ## Author
 
