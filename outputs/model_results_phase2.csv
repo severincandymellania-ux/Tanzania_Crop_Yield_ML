@@ -1,0 +1,10 @@
+Crop,Model,R² (Phase 2),MAE (kg/ha)
+Maize,Linear Regression,0.632,226.0
+Maize,Decision Tree,0.919,88.7
+Maize,Random Forest,0.872,126.1
+Rice,Linear Regression,0.789,227.7
+Rice,Decision Tree,0.979,50.2
+Rice,Random Forest,0.97,83.7
+Cassava,Linear Regression,0.825,728.4
+Cassava,Decision Tree,0.974,210.2
+Cassava,Random Forest,0.968,319.6
