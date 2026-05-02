@@ -1,7 +1,7 @@
 # Tanzania Crop Yield Intelligence — ML Prediction Study
 
 > Predicting maize, rice and cassava yields in Tanzania using machine
-> earning to support food security policy and agricultural lending
+> learning to support food security policy and agricultural lending
 >risk assessment.
 
 ## Live Dashboard
