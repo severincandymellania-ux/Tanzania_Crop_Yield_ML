@@ -193,3 +193,56 @@ summary = regional_yield.groupby('Crop').agg(
 
 print("\n=== NATIONAL SUMMARY BY CROP ===")
 print(summary)
+
+# ── STEP 10: ADD MANUAL COORDINATES FOR EACH REGION ──
+# Tableau's geocoding doesn't recognise Tanzanian regions
+# So we provide latitude and longitude for each region manually
+# These are the approximate centroids of each region
+
+region_coords = {
+    'Arusha':            (-3.3869,  36.6830),
+    'Dar es Salaam':     (-6.7924,  39.2083),
+    'Dodoma':            (-6.1630,  35.7516),
+    'Geita':             (-2.8649,  32.1654),
+    'Iringa':            (-7.7701,  35.6939),
+    'Kagera':            (-1.2986,  31.2697),
+    'Kaskazini Pemba':   (-5.0332,  39.7748),
+    'Kaskazini Unguja':  (-5.7748,  39.3467),
+    'Katavi':            (-6.8316,  31.3132),
+    'Kigoma':            (-4.8770,  29.6270),
+    'Kilimanjaro':       (-3.3390,  37.3390),
+    'Kusini Pemba':      (-5.2897,  39.7120),
+    'Kusini Unguja':     (-6.2462,  39.4425),
+    'Lindi':             (-9.9982,  39.7142),
+    'Manyara':           (-4.3155,  36.2540),
+    'Mara':              (-1.7554,  34.0069),
+    'Mbeya':             (-8.9000,  33.4600),
+    'Mjini Magharibi':   (-6.1659,  39.1989),
+    'Morogoro':          (-6.8242,  37.6611),
+    'Mtwara':            (-10.2673, 40.1877),
+    'Mwanza':            (-2.5164,  32.9175),
+    'Njombe':            (-9.3333,  34.7667),
+    'Pwani':             (-7.0048,  38.6529),
+    'Rukwa':             (-7.9338,  31.3997),
+    'Ruvuma':            (-10.6896, 35.6464),
+    'Shinyanga':         (-3.6601,  33.4230),
+    'Simiyu':            (-2.8370,  34.1520),
+    'Singida':           (-4.8185,  34.7500),
+    'Songwe':            (-8.9701,  32.6988),
+    'Tabora':            (-5.0160,  32.8005),
+    'Tanga':             (-5.0693,  38.9870),
+}
+
+# Add coordinates to our regional yield table
+regional_yield['Latitude']  = regional_yield['Region'].map(
+    lambda r: region_coords.get(r, (None, None))[0]
+)
+regional_yield['Longitude'] = regional_yield['Region'].map(
+    lambda r: region_coords.get(r, (None, None))[1]
+)
+
+# Save updated file with coordinates
+regional_yield.to_csv('outputs/tableau_regional_yield.csv', index=False)
+print("✅ Regional yield data updated with coordinates!")
+print(regional_yield[['Region','Crop','Avg_Yield_kg_ha',
+                        'Latitude','Longitude']].head(10))
