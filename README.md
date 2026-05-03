@@ -201,8 +201,8 @@ probability distributions of yield loss under various climate scenarios.
 
 ## Author
 
-**Candy Mellania Severin**
-MSc Business Analytics & Data Science
+**Candy Mellania Severin**,
+MSc Business Analytics & Data Science,
 Maria Curie-Skłodowska University (UMCS), Lublin, Poland
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://www.linkedin.com/in/candymellaniaseverin)
