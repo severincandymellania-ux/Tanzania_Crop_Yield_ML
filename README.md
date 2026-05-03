@@ -153,9 +153,51 @@ Tanzania_Crop_Yield_ML/
 
 - 34–35 data points per crop limits cross-validation reliability
 - Fertilizer and climate data available only to 2023
-- National level analysis only — no regional breakdown
-- Future work: incorporate NBS Tanzania Agricultural Sample Survey 
-  microdata for regional yield mapping at district level
+- National level analysis only for Phase 1 and Phase 2 — 
+  regional breakdown added in Phase 4 using NBS Tanzania microdata
+- Future work: incorporate district-level data for more granular 
+  regional yield mapping
+
+## Climate Scenario Analysis & Banking Implications
+
+A rainfall scenario analysis was conducted to model the impact of a 
+10% reduction in rainfall from the 10-year average (2014–2023) on 
+crop yield predictions.
+
+**Scenario tested:**
+- Normal rainfall baseline: 1,177.9 mm/year
+- Drought scenario (-10%): 1,060.1 mm/year
+- Difference: 117.8 mm less — approximately one month of average rainfall
+
+**Finding:**
+The Random Forest model showed limited sensitivity to isolated rainfall 
+changes at the national level, reflecting the model's reliance on 
+multivariate patterns rather than single-variable perturbations. Rice 
+showed a marginal yield increase of 1.5% under drought conditions, 
+while maize and cassava showed no detectable change.
+
+**What this means for agricultural lenders:**
+A bank holding TZS 10 billion in agricultural loans concentrated in 
+maize-growing regions needs to quantify drought exposure across its 
+loan portfolio. Our analysis reveals that maize yield is climate-sensitive 
+but difficult to predict from rainfall alone at the national level — 
+suggesting two important implications for lenders:
+
+1. **Regional granularity matters** — national-level models mask 
+   significant regional variation. Songwe farmers (2,741 kg/ha) face 
+   very different drought risk than Lindi farmers (421 kg/ha). 
+   Portfolio risk assessment must be region-specific.
+
+2. **Crop insurance is essential** — since yield prediction models 
+   cannot reliably forecast single-season drought impacts, agricultural 
+   loan portfolios should be paired with crop insurance products to 
+   protect both farmers and lenders from climate-driven yield shocks.
+
+**Future work:**
+Regional climate scenario modelling using district-level rainfall data 
+combined with NBS Tanzania microdata would enable more granular 
+drought risk assessment — providing banks with region-specific 
+probability distributions of yield loss under various climate scenarios.
 
 ## Author
 
