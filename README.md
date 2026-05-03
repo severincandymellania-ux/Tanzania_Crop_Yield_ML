@@ -102,6 +102,7 @@ of farmer productivity.
 | Land Use (Cropland/Arable) | FAOSTAT — UN FAO | 1990–2023 |
 | Pesticide Use | FAOSTAT — UN FAO | 1990–2023 |
 | Climate (Rainfall, T_min, T_max, Solar) | NASA POWER | 1990–2024 |
+| NBS Tanzania AASS 2023/24 | National Bureau of Statistics | 2023/24 |
 
 ## Project Structure
 
@@ -140,12 +141,13 @@ Tanzania_Crop_Yield_ML/
 - **PyCharm** — development environment
 - **Git/GitHub** — version control
 
+
 ## Project Status
 
 - [x] Phase 1 — Univariate ML models (Year → Yield)
 - [x] Phase 2 — Multivariate models (Climate + Fertilizer + Area → Yield)
 - [x] Phase 3 — Tableau Public interactive dashboard
-- [ ] Phase 4 — Regional yield mapping (NBS Tanzania microdata)
+- [x] Phase 4 — Regional yield mapping (NBS Tanzania AASS 2023/24 microdata)
 
 ## Limitations & Future Work
 
