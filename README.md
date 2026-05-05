@@ -167,14 +167,15 @@ Top and bottom performers by crop (NBS Tanzania AASS 2023/24 — 26,000+ farm re
 
 ## 📂 Data Sources
 
-| Dataset | Source | Period | Records |
-|---|---|---|---|
-| Crop Yield (Maize, Rice, Cassava) | FAOSTAT — UN FAO | 1990–2024 | 105 rows |
-| Fertilizers by Nutrient (N, P, K) | FAOSTAT — UN FAO | 1990–2023 | 102 rows |
-| Area Harvested | FAOSTAT — UN FAO | 1990–2024 | 105 rows |
-| Land Use (Cropland/Arable) | FAOSTAT — UN FAO | 1990–2023 | 34 rows |
-| Climate (Rainfall, T_min, T_max, Solar) | NASA POWER | 1990–2024 | 34 rows |
-| Regional Farm Survey | NBS Tanzania AASS 2023/24 | 2023/24 | 26,656 records |
+| Dataset | Source | Period | Records                                                 |
+|---|---|---|---------------------------------------------------------|
+| Crop Yield (Maize, Rice, Cassava) | FAOSTAT — UN FAO | 1990–2024 | 105 rows                                                |
+| Fertilizers by Nutrient (N, P, K) | FAOSTAT — UN FAO | 1990–2023 | 102 rows                                                |
+| Area Harvested | FAOSTAT — UN FAO | 1990–2024 | 105 rows                                                |
+| Land Use (Cropland/Arable) | FAOSTAT — UN FAO | 1990–2023 | 34 rows                                                 |
+| Pesticides (total) | FAOSTAT — UN FAO | 1990–2023 | 34 rows - **excluded from modelling** (see Limitations) |
+| Climate (Rainfall, T_min, T_max, Solar) | NASA POWER | 1990–2024 | 34 rows                                                 |
+| Regional Farm Survey | NBS Tanzania AASS 2023/24 | 2023/24 | 26,656 records                                          |
 
 ---
 
@@ -234,8 +235,9 @@ Tanzania_Crop_Yield_ML/
 
 - 34-35 national data points per crop limits cross-validation reliability
 - Fertilizer and climate data available only to 2023
-- Climate scenario analysis (rainfall −10%) showed limited model sensitivity at national level — regional granularity required for robust drought risk forecasting
+- Climate scenario analysis (rainfall −10%) showed limited model sensitivity at national level - regional granularity required for robust drought risk forecasting
 - NBS regional analysis represents one survey year (2023/24) - longitudinal regional data would strengthen findings
+- **Pesticide data excluded** - FAOSTAT pesticide records for Tanzania showed a constant value of 1 tonne for 24 consecutive years (2000–2023), indicating systematic data imputation rather than actual reporting. Including a zero-variance variable would add no predictive signal and was therefore excluded from all models
 
 ---
 
